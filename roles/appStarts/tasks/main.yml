@@ -1,0 +1,30 @@
+---
+- name: upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+
+- name: install nginx
+  yum: 
+     name: nginx  
+     state: present
+  
+- name: restart nginx
+  service: 
+       name: nginx
+       state: started
+    
+- debug:
+    msg: "Check nginx now"
+ 
+- name: Start Jenkins container
+  docker_container:
+     name: jenkins_container
+     image: jenkins
+     ports: "8080:8080"
+     volumes: /data/jenkins:/share/jenkins_home
+     tty: true
+     detach: true
+
+
+...  

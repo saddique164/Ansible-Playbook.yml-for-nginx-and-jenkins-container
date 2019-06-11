@@ -1,0 +1,11 @@
+---
+- name: "Installing VIM"
+  yum: pkg=vim state=installed
+
+- name: "triger VNC server installation"
+  yum: pkg=tigervnc-server state=installed
+
+
+
+
+...

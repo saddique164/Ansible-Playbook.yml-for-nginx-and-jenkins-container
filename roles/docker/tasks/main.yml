@@ -1,0 +1,16 @@
+---
+- name: installing docker packages on slave nodes
+  yum:
+      name: "{{ packages }}"
+  vars:
+      packages:
+                 - yum-utils
+                 - device-mapper-persistent-data
+                 - lvm2
+
+- name: installing docker now finally
+  yum:
+    name: docker-ce
+    state: present
+
+...

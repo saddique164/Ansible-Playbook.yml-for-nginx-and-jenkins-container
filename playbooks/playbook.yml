@@ -1,0 +1,14 @@
+---
+- name: playbook for all tasks
+  hosts: nodes
+  become: yes
+  become_user: root
+  become_method: su
+  roles:
+     - epel-repository
+     - ShellWork
+     - application
+     - jenkins
+     - docker
+     - appStarts
+     - basic

@@ -1,0 +1,8 @@
+---
+- name: playbook for all tasks
+  hosts: nodes
+  become: yes
+  become_user: root
+  become_method: su
+  roles:
+     - appStarts

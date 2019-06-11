@@ -1,0 +1,7 @@
+---
+- name: Install Python-3 and pip
+  yum:
+       name: python-pip
+       state: present
+...
+

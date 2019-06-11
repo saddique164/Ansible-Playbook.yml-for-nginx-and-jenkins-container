@@ -1,0 +1,16 @@
+---
+- name: create nginx repo file
+  command: touch  /etc/yum.repos.d/nginx.repo
+
+- name: storing in the file 
+  blockinfile: 
+   dest: /etc/yum.repos.d/nginx.repo
+   content="[nginx]
+         name=nginx repo
+         baseurl=http://nginx.org/packages/mainline/centos/7/$basearch/
+         gpgcheck=0
+         enabled=1"
+
+- name: update created repository
+  command: yum update
+...

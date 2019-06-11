@@ -1,0 +1,12 @@
+---
+- name: jenkins directory on Jenkins host
+  file:
+    state: directory
+    group: 1000
+    owner: 1000
+    path: /share/jenkins
+
+- name: Pull docker Image
+  docker_image:
+      name: "jenkins:latest"
+
